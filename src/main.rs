@@ -28,5 +28,9 @@ async fn parse_args() -> Result<String, Box<dyn Error>> {
         return Err("Message cannot be empty".into());
     }
 
+    if message.len() > 300 {
+        return Err("Message too long (max 300 characters)".into())
+    }
+
     Ok(message.to_string())
 }
