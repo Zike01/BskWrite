@@ -20,16 +20,19 @@ A command-line tool for posting messages to Bluesky Social written in Rust.
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Zike01/BskWrite.git
-   cd BskWrite
+   git clone https://github.com/Zike01/bskwrite.git
+   cd bskwrite
    ```
 
-2. **Set up your Bluesky credentials**
+2. **Build and install**
    ```bash
-   cp .env.example .env
+   cargo install --path .
    ```
-   
-   Edit `.env` with your preferred text editor:
+
+3. **Set up your Bluesky credentials** <br>
+
+   For first time users, the example env will be created inside your config directory.
+   Navigate to your config dir and edit `.env` with your preferred text editor:
    ```bash
    nano .env
    ```
@@ -40,18 +43,13 @@ A command-line tool for posting messages to Bluesky Social written in Rust.
    BSKY_PASSWORD=your-app-password-here
    ```
 
-3. **Build and install**
-   ```bash
-   cargo install --path .
-   ```
-
 ### Option 2: Direct Install from GitHub
 
 ```bash
-cargo install --git https://github.com/Zike01/BskWrite.git
+cargo install --git https://github.com/Zike01/bskwrite.git
 ```
 
-Then create your `.env` file as described above.
+Then edit your `.env` file as described above.
 
 ## Getting Your Bluesky App Password
 
@@ -100,29 +98,7 @@ The tool uses these environment variables from your `.env` file:
 
 After your first successful login, the tool saves your session in `config.json`. This file is automatically created and managed - you don't need to edit it manually.
 
-## Troubleshooting
-
-### Common Issues
-
-**"BSKY_EMAIL not found in environment"**
-- Make sure you've created the `.env` file by copying `.env.example`
-- Check that your `.env` file contains the correct variable names
-
-**"Authentication error"**
-- Verify your email address is correct
-- Make sure you're using an app password, not your regular password
-- Try generating a new app password
-
-**"Command not found: bskwrite"**
-- Make sure `~/.cargo/bin` is in your PATH
-- Try running `source ~/.bashrc` or restart your terminal
-- Verify installation with `which bskwrite`
-
-**"Message too long"**
-- Bluesky has a 300 character limit for posts
-- Keep your message under this limit
-
-### Getting Help
+### Troubleshooting
 
 If you encounter issues:
 
@@ -131,27 +107,7 @@ If you encounter issues:
 3. Try deleting `config.json` to force a fresh login
 4. Make sure you have the latest version of Rust
 
-## Development
-
-### Building from Source
-
-```bash
-git clone https://github.com/yourusername/bskwrite.git
-cd bskwrite
-cargo build --release
-```
-
-The binary will be available at `target/release/bskwrite`.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgments
 
-- Built with [bsky-sdk](https://github.com/sugyan/bsky-sdk) for Bluesky API integration
+- Built with [bsky_sdk](https://docs.rs/bsky-sdk/latest/bsky_sdk/) for Bluesky API integration
 - Uses [atrium-api](https://github.com/sugyan/atrium) for AT Protocol support
