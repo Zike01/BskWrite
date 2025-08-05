@@ -100,29 +100,7 @@ The tool uses these environment variables from your `.env` file:
 
 After your first successful login, the tool saves your session in `config.json`. This file is automatically created and managed - you don't need to edit it manually.
 
-## Troubleshooting
-
-### Common Issues
-
-**"BSKY_EMAIL not found in environment"**
-- Make sure you've created the `.env` file by copying `.env.example`
-- Check that your `.env` file contains the correct variable names
-
-**"Authentication error"**
-- Verify your email address is correct
-- Make sure you're using an app password, not your regular password
-- Try generating a new app password
-
-**"Command not found: bskwrite"**
-- Make sure `~/.cargo/bin` is in your PATH
-- Try running `source ~/.bashrc` or restart your terminal
-- Verify installation with `which bskwrite`
-
-**"Message too long"**
-- Bluesky has a 300 character limit for posts
-- Keep your message under this limit
-
-### Getting Help
+### Troubleshooting
 
 If you encounter issues:
 
