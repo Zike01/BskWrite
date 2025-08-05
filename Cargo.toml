@@ -6,5 +6,6 @@ edition = "2024"
 [dependencies]
 atrium-api = "0.25.4"
 bsky-sdk = "0.1.20"
+dirs = "6.0.0"
 dotenvy = "0.15.7"
 tokio = { version = "1.47.1", features = ["full"] }

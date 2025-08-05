@@ -4,9 +4,10 @@ use bsky_sdk::{
     BskyAgent,
     agent::config::{Config, FileStore},
 };
-use dotenvy;
-use std::error::Error;
 
+mod setup;
+use setup::{get_config_dir, load_credentials};
+use std::error::Error;
 const CONFIG_FILE: &str = "config.json";
 
 /// Write a post to Bluesky using the agent and message
@@ -37,26 +38,24 @@ pub async fn write_post(agent: &BskyAgent, message: &str) -> bsky_sdk::Result<()
 
 /// Saves agent config and session to the config file
 pub async fn save_user_agent() -> Result<BskyAgent, Box<dyn Error>> {
-    dotenvy::dotenv().map_err(|e| format!("Failed to load .env file: {}", e))?;
-
-    let email = dotenvy::var("BSKY_EMAIL").map_err(|_| "BSKY_EMAIL not found in environment")?;
-    let password =
-        dotenvy::var("BSKY_PASSWORD").map_err(|_| "BSKY_PASSWORD not found in environment")?;
-
+    let (email, password) = load_credentials()?;
     let agent = BskyAgent::builder().build().await?;
+    let config_dir = get_config_dir()?;
+
     agent.login(&email, &password).await?;
     agent
         .to_config()
         .await
-        .save(&FileStore::new(CONFIG_FILE))
+        .save(&FileStore::new(config_dir.join(CONFIG_FILE)))
         .await?;
     Ok(agent)
 }
 
 /// Loads agent config and session if config file exists
 pub async fn load_user_agent() -> Result<BskyAgent, Box<dyn Error>> {
+    let config_dir = get_config_dir()?;
     let agent = BskyAgent::builder()
-        .config(Config::load(&FileStore::new(CONFIG_FILE)).await?)
+        .config(Config::load(&FileStore::new(config_dir.join(CONFIG_FILE))).await?)
         .build()
         .await?;
 
