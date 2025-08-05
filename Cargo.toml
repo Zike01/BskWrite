@@ -1,0 +1,10 @@
+[package]
+name = "bskwrite"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+atrium-api = "0.25.4"
+bsky-sdk = "0.1.20"
+dotenvy = "0.15.7"
+tokio = { version = "1.47.1", features = ["full"] }
