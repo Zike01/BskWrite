@@ -111,5 +111,5 @@ If you encounter issues:
 
 ## Acknowledgments
 
-- Built with [bsky-sdk](https://github.com/sugyan/bsky-sdk) for Bluesky API integration
+- Built with [bsky_sdk](https://docs.rs/bsky-sdk/latest/bsky_sdk/) for Bluesky API integration
 - Uses [atrium-api](https://github.com/sugyan/atrium) for AT Protocol support
