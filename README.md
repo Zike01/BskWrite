@@ -24,12 +24,15 @@ A command-line tool for posting messages to Bluesky Social written in Rust.
    cd bskwrite
    ```
 
-2. **Set up your Bluesky credentials**
+2. **Build and install**
    ```bash
-   cp .env.example .env
+   cargo install --path .
    ```
-   
-   Edit `.env` with your preferred text editor:
+
+3. **Set up your Bluesky credentials** <br>
+
+   For first time users, the example env will be created inside your config directory.
+   Navigate to your config dir and edit `.env` with your preferred text editor:
    ```bash
    nano .env
    ```
@@ -40,18 +43,13 @@ A command-line tool for posting messages to Bluesky Social written in Rust.
    BSKY_PASSWORD=your-app-password-here
    ```
 
-3. **Build and install**
-   ```bash
-   cargo install --path .
-   ```
-
 ### Option 2: Direct Install from GitHub
 
 ```bash
 cargo install --git https://github.com/Zike01/bskwrite.git
 ```
 
-Then create your `.env` file as described above.
+Then edit your `.env` file as described above.
 
 ## Getting Your Bluesky App Password
 
