@@ -20,8 +20,8 @@ A command-line tool for posting messages to Bluesky Social written in Rust.
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Zike01/BskWrite.git
-   cd BskWrite
+   git clone https://github.com/Zike01/bskwrite.git
+   cd bskwrite
    ```
 
 2. **Set up your Bluesky credentials**
@@ -48,7 +48,7 @@ A command-line tool for posting messages to Bluesky Social written in Rust.
 ### Option 2: Direct Install from GitHub
 
 ```bash
-cargo install --git https://github.com/Zike01/BskWrite.git
+cargo install --git https://github.com/Zike01/bskwrite.git
 ```
 
 Then create your `.env` file as described above.
@@ -130,26 +130,6 @@ If you encounter issues:
 2. Verify your app password is valid
 3. Try deleting `config.json` to force a fresh login
 4. Make sure you have the latest version of Rust
-
-## Development
-
-### Building from Source
-
-```bash
-git clone https://github.com/yourusername/bskwrite.git
-cd bskwrite
-cargo build --release
-```
-
-The binary will be available at `target/release/bskwrite`.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
